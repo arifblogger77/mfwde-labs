@@ -4,7 +4,8 @@
   box-sizing: border-box;
 }
 
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -42,6 +43,41 @@ body {
   color: #212121;
 }
 
+#drawer {
+  width: 250px;
+  height: 100%;
+  position: absolute;
+
+  /* menyembunyikan drawer -250px (sesuai dengan ukuran lebar drawer) ke kiri */
+  transform: translate(-250px, 0);
+  transition: transform 0.3s ease-in-out;
+  background: white;
+}
+
+#drawer.open {
+  transform: translate(0, 0);
+}
+
+#drawer li {
+  border-bottom: 1px black solid;
+}
+
+#drawer a {
+  text-decoration: none;
+  font-size: 25px;
+  color: black;
+}
+
+#hamburger {
+  font-size: 32px;
+  font-weight: bold;
+  min-width: 44px;
+  min-height: 44px;
+  text-decoration: none;
+  color: black;
+  text-align: center;
+}
+
 /*
  * Top level navigation
  */
@@ -56,12 +92,11 @@ body {
   width: 100%;
   padding: 0;
   margin: 0;
-  text-align: center;
 }
 
 .nav__item {
   box-sizing: border-box;
-  display: inline-block;
+  display: block;
   width: 24%;
   text-align: center;
   line-height: 24px;
@@ -159,16 +194,16 @@ main {
 .headline__content {
   width: 100%;
   float: left;
-  padding: 16px 32px;
+  padding: 16px 0px;
 }
 
 .headline__title {
-  font-size: 32px;
+  font-size: 18px;
   font-weight: 500;
 }
 
 .headline__description {
-  font-size: 16px;
+  font-size: 14px;
   margin-top: 12px;
 }
 
@@ -237,7 +272,7 @@ main {
 }
 
 .post-item__content {
-  padding: 16px 32px 32px 32px;
+  padding: 16px 16px 32px 16px;
 }
 
 .post-item__thumbnail {
@@ -312,7 +347,33 @@ button {
 }
 
 @media screen and (min-width: 650px) {
-  
+
+  .headline__title {
+    font-size: 18px;
+  }
+
+  .post-item__content {
+    padding: 16px;
+  }
+
+  #hamburger {
+    display: none;
+  }
+
+  #drawer {
+    position: relative;
+    width: 100%;
+    height: auto;
+    transform: translate(0, 0);
+  }
+
+  #drawer li {
+    border-bottom: none;
+  }
+
+  .nav__item {
+    display: inline-block;
+  }
 }
 
 @media screen and (min-width: 1000px) {
@@ -323,10 +384,22 @@ button {
 
 @media screen and (min-width: 1200px) {
 
+  .headline__content {
+    padding: 32px;
+  }
+
+  .headline__title {
+    font-size: 24px;
+  }
+
+  .headline__description {
+    font-size: 18px;
+  }
+
   main {
     max-width: 1200px;
   }
-    
+
   .latest {
     max-width: 1200px;
   }

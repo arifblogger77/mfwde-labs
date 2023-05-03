@@ -219,6 +219,9 @@ main {
   margin: 32px auto auto;
   text-align: left;
   overflow: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0px 10px;
 }
 
 /*
@@ -226,7 +229,6 @@ main {
  */
 
 .post-item {
-  float: left;
   margin: 16px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   width: 100%;
@@ -307,4 +309,29 @@ button {
   box-sizing: border-box;
   min-width: 44px;
   min-height: 44px;
+}
+
+@media screen and (min-width: 650px) {
+  
+}
+
+@media screen and (min-width: 1000px) {
+  .posts {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+
+  main {
+    max-width: 1200px;
+  }
+    
+  .latest {
+    max-width: 1200px;
+  }
+
+  .posts {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
